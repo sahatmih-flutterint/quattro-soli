@@ -1,286 +1,263 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Меню</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Quattro Soli | Restaurant & Hotel Primorsko</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-
-font-family:'Poppins',sans-serif;
-background:#111;
-color:white;
-
+    font-family: Arial, Helvetica, sans-serif;
+    background:#0b0b0b;
+    color:#fff;
 }
 
-header{
-
-position:sticky;
-top:0;
-
-padding:20px;
-
-background:rgba(17,17,17,.95);
-
-backdrop-filter:blur(15px);
-
-text-align:center;
-
-font-size:30px;
-
-font-weight:700;
-
-letter-spacing:1px;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-z-index:100;
-
+.hero{
+    padding:42px 20px 28px;
+    text-align:center;
+    background:
+    radial-gradient(circle at top, #2b1b06, #0b0b0b 55%);
 }
 
-.sub{
-
-text-align:center;
-
-color:#999;
-
-padding:12px 20px 25px;
-
-font-size:15px;
-
+.logo{
+    font-size:54px;
+    color:#d6a84f;
+    font-weight:bold;
+    letter-spacing:3px;
 }
 
-.container{
+h1{
+    margin-top:10px;
+    font-size:30px;
+    letter-spacing:2px;
+}
 
-max-width:900px;
+.subtitle{
+    margin-top:8px;
+    color:#d6a84f;
+    font-size:15px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
 
-margin:auto;
+.info{
+    margin:22px auto 0;
+    max-width:520px;
+    color:#ddd;
+    font-size:15px;
+    line-height:1.6;
+}
 
-padding:15px;
+.buttons{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
 
+.btn{
+    text-decoration:none;
+    color:#111;
+    background:#d6a84f;
+    padding:13px 18px;
+    border-radius:999px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.btn.dark{
+    color:#fff;
+    background:#1c1c1c;
+    border:1px solid #333;
+}
+
+.section-title{
+    text-align:center;
+    margin:35px 0 15px;
+    font-size:24px;
+    color:#d6a84f;
+}
+
+.menu{
+    max-width:900px;
+    margin:auto;
+    padding:10px 14px 35px;
 }
 
 .card{
-
-overflow:hidden;
-
-border-radius:24px;
-
-margin-bottom:30px;
-
-background:#1a1a1a;
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.45);
-
-transition:.35s;
-
-}
-
-.card:hover{
-
-transform:translateY(-4px);
-
+    margin-bottom:26px;
+    border-radius:24px;
+    overflow:hidden;
+    background:#171717;
+    box-shadow:0 18px 45px rgba(0,0,0,.55);
+    border:1px solid rgba(214,168,79,.18);
 }
 
 .card img{
+    width:100%;
+    display:block;
+    cursor:pointer;
+}
 
-width:100%;
+.details{
+    max-width:900px;
+    margin:auto;
+    padding:15px 18px 35px;
+    display:grid;
+    gap:14px;
+}
 
-display:block;
+.detail-box{
+    background:#151515;
+    border:1px solid rgba(214,168,79,.2);
+    border-radius:18px;
+    padding:18px;
+    line-height:1.6;
+}
 
-cursor:pointer;
+.detail-box b{
+    color:#d6a84f;
+}
 
+.footer{
+    text-align:center;
+    padding:35px 20px 90px;
+    color:#aaa;
 }
 
 .lightbox{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,.95);
-
-display:none;
-
-justify-content:center;
-align-items:center;
-
-padding:20px;
-
-z-index:999;
-
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.96);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:15px;
 }
+
+.lightbox.show{display:flex}
 
 .lightbox img{
-
-max-width:100%;
-max-height:100%;
-
-border-radius:16px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.5);
-
-}
-
-.show{
-
-display:flex;
-
-animation:fade .25s;
-
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-}
-
-to{
-opacity:1;
-}
-
+    max-width:100%;
+    max-height:100%;
+    border-radius:16px;
 }
 
 .top{
-
-position:fixed;
-
-bottom:20px;
-
-right:20px;
-
-width:55px;
-
-height:55px;
-
-border-radius:50%;
-
-background:#ff7a00;
-
-display:flex;
-
-justify-content:center;
-align-items:center;
-
-font-size:22px;
-
-cursor:pointer;
-
-box-shadow:0 10px 25px rgba(0,0,0,.45);
-
-user-select:none;
-
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    background:#d6a84f;
+    color:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
 }
-
-footer{
-
-text-align:center;
-
-padding:35px;
-
-color:#777;
-
-font-size:14px;
-
-}
-
 </style>
-
 </head>
 
 <body>
 
-<header>
-🍕 Меню
-</header>
+<section class="hero">
+    <div class="logo">QS</div>
+    <h1>QUATTRO SOLI</h1>
+    <div class="subtitle">Restaurant & Hotel · Primorsko</div>
 
-<div class="sub">
-Добре дошли! ❤️
-</div>
+    <div class="info">
+        🍕 Пици на пещ · 🍽️ Ресторант · 🏨 Хотел · 📍 ул. „Иглика“ 7, Приморско
+    </div>
 
-<div class="container">
+    <div class="buttons">
+        <a class="btn" href="#menu">Виж менюто</a>
+        <a class="btn dark" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Restaurant%20Quattro%20Soli%20Primorsko%20Iglika%207">
+            Google Maps
+        </a>
+    </div>
+</section>
 
-<div class="card">
-<img src="menu1.jpg" onclick="show(this.src)">
-</div>
+<h2 class="section-title" id="menu">Нашето меню</h2>
 
-<div class="card">
-<img src="menu2.jpg" onclick="show(this.src)">
-</div>
-
-<div class="card">
-<img src="menu3.jpg" onclick="show(this.src)">
-</div>
-
-<div class="card">
-<img src="menu4.jpg" onclick="show(this.src)">
-</div>
+<section class="menu">
 
 <div class="card">
-<img src="menu5.jpg" onclick="show(this.src)">
+    <img src="menu1.jpg" onclick="openImage(this.src)" alt="Quattro Soli Menu 1">
 </div>
 
 <div class="card">
-<img src="menu6.jpg" onclick="show(this.src)">
+    <img src="menu2.jpg" onclick="openImage(this.src)" alt="Quattro Soli Menu 2">
 </div>
 
+<div class="card">
+    <img src="menu3.jpg" onclick="openImage(this.src)" alt="Quattro Soli Menu 3">
 </div>
 
-<footer>
-
-Желаем Ви приятен апетит!
-
-</footer>
-
-<div class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-
-↑
-
+<div class="card">
+    <img src="menu4.jpg" onclick="openImage(this.src)" alt="Quattro Soli Menu 4">
 </div>
 
-<div class="lightbox" id="lightbox" onclick="hideImage()">
+<div class="card">
+    <img src="menu5.jpg" onclick="openImage(this.src)" alt="Quattro Soli Menu 5">
+</div>
 
-<img id="preview">
+<div class="card">
+    <img src="menu6.jpg" onclick="openImage(this.src)" alt="Quattro Soli Menu 6">
+</div>
 
+</section>
+
+<h2 class="section-title">Информация</h2>
+
+<section class="details">
+
+<div class="detail-box">
+    <b>Quattro Soli Restaurant & Hotel</b><br>
+    Център, ул. „Иглика“ 7, 8180 Приморско
+</div>
+
+<div class="detail-box">
+    <b>За нас</b><br>
+    Ресторант и хотел в сърцето на Приморско. Предлагаме пици на пещ, вкусна храна, напитки и уютна атмосфера.
+</div>
+
+<div class="detail-box">
+    <b>Удобства</b><br>
+    Wi-Fi · бар · ресторант · хотелско настаняване
+</div>
+
+</section>
+
+<div class="footer">
+    QUATTRO SOLI · Restaurant & Hotel · Primorsko<br>
+    Благодарим Ви и Ви желаем приятен апетит ❤️
+</div>
+
+<div class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+    <img id="preview" alt="Quattro Soli Menu Preview">
 </div>
 
 <script>
-
-function show(src){
-
-document.getElementById("preview").src=src;
-
-document.getElementById("lightbox").classList.add("show");
-
+function openImage(src){
+    document.getElementById("preview").src = src;
+    document.getElementById("lightbox").classList.add("show");
 }
 
-function hideImage(){
-
-document.getElementById("lightbox").classList.remove("show");
-
+function closeImage(){
+    document.getElementById("lightbox").classList.remove("show");
 }
-
 </script>
 
 </body>
